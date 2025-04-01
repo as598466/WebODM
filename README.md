@@ -69,7 +69,7 @@ To install WebODM manually on your machine with docker:
 ### Installation with Docker (Linux Debian 12, Ubuntu 22.04)
 * From the command line, type (production branch):
 ```bash
-git clone -b production https://github.com/as598466/WebODM --config core.autocrlf=input --depth 1
+git clone https://github.com/as598466/WebODM --config core.autocrlf=input --depth 1
 cd WebODM
 ./webodm.sh start
 ```
