@@ -44,8 +44,6 @@ A user-friendly, commercial grade software for drone image processing. Generate 
 
 # Getting Started
 
-Windows and macOS users can purchase an automated [installer](https://www.opendronemap.org/webodm/download#installer), which makes the installation process easier.
-
 There's also a cloud-hosted version of WebODM available from [webodm.net](https://webodm.net).
 
 ## Recommended Machine Specs
@@ -57,7 +55,7 @@ To run a standalone installation of WebODM (the user interface), including the p
 
 Don't expect to process more than a few hundred images with these specifications. To process larger datasets, add more RAM linearly to the number of images you want to process. A CPU with more cores will speed up processing, but can increase memory usage. GPU acceleration is also supported on Linux and WSL. To make use of your CUDA-compatible graphics card, make sure to pass `--gpu` when starting WebODM. You need the nvidia-docker installed in this case, see https://github.com/NVIDIA/nvidia-docker and https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#docker for information on docker/NVIDIA setup.
 
-WebODM runs best on Linux, but works well on Windows and Mac too. If you are technically inclined, you can get WebODM to run natively on all three platforms.
+WebODM runs best on Linux.
 
 WebODM by itself is just a user interface (see [below](#odm-nodeodm-webodm-what)) and does not require many resources. WebODM can be loaded on a machine with just 1 or 2 GB of RAM and work fine without NodeODM. You can then use a processing service such as the [lightning network](https://webodm.net) or run NodeODM on a separate, more powerful machine.
 
@@ -68,19 +66,10 @@ To install WebODM manually on your machine with docker:
   - [Git](https://git-scm.com/downloads)
   - [Docker](https://www.docker.com/)
 
-* Windows users should install [Docker Desktop](https://hub.docker.com/editions/community/docker-ce-desktop-windows) and :
-    1. make sure Linux containers are enabled (Switch to Linux Containers...)
-
-    2.  give Docker enough CPUs (default 2) and RAM (>4Gb, 16Gb better but leave some for Windows) by going to Settings -- Advanced
-
-    3.  select where on your hard drive you want virtual hard drives to reside (Settings -- Advanced -- Images & Volumes).
-    
-    4.  If you want to run the processing component (NodeODM) with GPU acceleration, install [WSL](https://learn.microsoft.com/windows/wsl/) and [set up GPU acceleration](https://learn.microsoft.com/windows/wsl/tutorials/gpu-compute). It's supported on Windows 11 or Windows 10, version 21H2 or higher.
-
-### Installation with Docker
-* From the Docker Quickstart Terminal or Git Bash (Windows), or from the command line (Mac / Linux / WSL), type:
+### Installation with Docker (Linux Debian 12, Ubuntu 22.04)
+* From the command line, type (production branch):
 ```bash
-git clone https://github.com/OpenDroneMap/WebODM --config core.autocrlf=input --depth 1
+git clone -b production https://github.com/as598466/WebODM --config core.autocrlf=input --depth 1
 cd WebODM
 ./webodm.sh start
 ```
