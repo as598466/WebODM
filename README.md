@@ -2,8 +2,7 @@
 
 ![Build Status](https://img.shields.io/github/actions/workflow/status/OpenDroneMap/WebODM/build-and-publish.yml?branch=master) ![Version](https://img.shields.io/github/v/release/OpenDroneMap/WebODM) [![Translated](https://hosted.weblate.org/widgets/webodm/-/svg-badge.svg)](https://hosted.weblate.org/engage/webodm/) [![Download](https://img.shields.io/badge/Download-%E2%86%93-pink)](#getting-started) [![Purchase](https://img.shields.io/badge/Purchase-%F0%9F%9B%92-white)](https://opendronemap.org/webodm/download/)
 
-A user-friendly, commercial grade software for drone image processing. Generate georeferenced maps, point clouds, elevation models and textured 3D models from aerial images. It supports multiple engines for processing, currently [ODM](https://github.com/OpenDroneMap/ODM) and [MicMac](https://github.com/OpenDroneMap/NodeMICMAC/).
-
+A user-friendly, commercial grade software for drone image processing. Generate georeferenced maps, point clouds, elevation models and textured 3D models from aerial images.
 ![image](https://user-images.githubusercontent.com/1951843/174504753-6869e56e-7b65-4775-bb23-6c1dc256575c.png)
 
 
@@ -13,7 +12,6 @@ A user-friendly, commercial grade software for drone image processing. Generate 
       + [Requirements](#requirements)
       + [Installation with Docker](#installation-with-docker)
       + [Manage Processing Nodes](#manage-processing-nodes)
-      + [Enable MicMac](#enable-micmac)
       + [Enable SSL](#enable-ssl)
       + [Enable IPv6](#enable-ipv6)
       + [Where Are My Files Stored?](#where-are-my-files-stored)
@@ -116,26 +114,6 @@ If you don't need the default "node-odm-1" node, simply pass `--default-nodes 0`
 `./webodm.sh restart --default-nodes 0`.
 
 Then from the web interface simply manually remove the "node-odm-1" node.
-
-## Distributed Installation Using NAS (Qnap)
-If you use lightning or another processor node the requirements for WebODM are low enough for it to run on a fairly low power device such as a NAS. Testing has been done on a Qnap-TS264 with 32Gb of RAM (Celeron  N5095 processor)
-To install WebODM on a Qnap NAS:-
-1) Enable ssh access to the NAS in control panel
-2) Install git. This might be easily achieved using the [qgit qkpg](https://www.myqnap.org/product/qgit/)
-3) Now follow the “Installation with Docker” instructions above.
-4) A new "webodm" application should appear in container station along with four individual containers for the app.
-5) Webodm should be available at port 8000 of the NAS.
-6) Setup a lightning account online and configure it within "processing nodes". It's also possible to setup a more powerful computer to run processing tasks instead of lightning.
-   
-This method of working may be useful if using the WebODM Lightning PAYG model as it offers somewhere to host your models outwith the three day window offered as part of PAYG
-
-### Enable MicMac
-
-WebODM can use [MicMac](https://github.com/OpenDroneMap/micmac) as a processing engine via [NodeMICMAC](https://github.com/OpenDroneMap/NodeMICMAC/). To add MicMac, simply run:
-
-`./webodm.sh restart --with-micmac`
-
-This will create a "node-micmac-1" processing node on the same machine running WebODM. Please note that NodeMICMAC is in active development and is currently experimental. If you find issues, please [report them](https://github.com/OpenDroneMap/NodeMICMAC/issues) on the NodeMICMAC repository.
 
 ### Enable SSL
 
